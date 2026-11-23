@@ -1,0 +1,140 @@
+<!doctype html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 2026 Rognes Advent Calendar</title>
+<meta name="description" content="The 2026 Rognes Advent Calendar. The first door opens on 1 December 2026.">
+<style>
+:root {
+  --bg: #000;  --panel: #0a0d0c;  --line: #1f2723;
+  --fg: #ecefe9;  --muted: #9aa69f;
+  --pine: #0e3b2c;  --pine-hi: #1d6b4f;   /* door frames */
+  --gold: #e8d7ab;  --gold-dim: #7d6f50;  /* champagne */
+  --red: #c8364a;                         /* ribbons */
+  --font: "DejaVu Sans", Verdana, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 var(--font); padding: 28px 16px 56px; }
+.wrap { max-width: 1100px; margin: 0 auto; display: grid; gap: 34px; }
+a { color: var(--gold); }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* Header */
+header { display: grid; gap: 12px; }
+.ribbon { height: 4px; max-width: 220px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--red) 0 33%, var(--pine-hi) 33% 66%, var(--gold) 66%); }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.1; margin: 0; }
+.tagline { font-size: clamp(18px, 2.6vw, 24px); font-weight: 600; margin: 0; color: var(--gold); }
+.lede { color: var(--muted); max-width: 68ch; margin: 0; }
+.status { color: var(--muted); font-size: 13px; margin: 0; }
+.status b { color: var(--fg); }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin: 0 0 14px; }
+
+/* The 24 doors */
+.doors { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.tile { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; display: grid; place-items: center;
+  background: var(--panel); border: 2px solid var(--pine); color: inherit; text-decoration: none; }
+.tile .num { font-size: clamp(26px, 4vw, 44px); font-weight: 700; line-height: 1; color: var(--gold-dim); position: relative; }
+.tile .mon { position: absolute; left: 8px; bottom: 6px; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.tile.open { border-color: var(--gold); }
+.tile.open img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+.tile.open .num { color: var(--gold); text-shadow: 0 1px 8px #000; }
+.tile.open .mon { color: var(--fg); text-shadow: 0 1px 4px #000; }
+.tile.open:hover { border-color: #f6ead0; }
+.tile.last { border-style: dashed; border-color: var(--gold-dim); }
+
+/* An open door */
+.open-doors { display: grid; gap: 16px; }
+.door { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 18px; align-items: start;
+  border: 1px solid var(--gold-dim); border-radius: 12px; padding: 16px; background: var(--panel); }
+.door video { width: 100%; aspect-ratio: 4 / 5; border-radius: 8px; background: #000; display: block; }
+.door .side { display: grid; gap: 10px; min-width: 0; }
+.date { color: var(--gold); font-weight: 700; display: flex; align-items: baseline; gap: 6px; }
+.date .big { font-size: 34px; line-height: 1; }
+.date .mon { font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; }
+.question { font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0; }
+.run { font-size: 13px; color: var(--muted); margin: 0; }
+.run b { color: var(--fg); font-weight: 400; }
+.carousel img { width: 100%; height: auto; display: block; border-radius: 6px; }
+.caption { font-size: 12px; color: var(--muted); margin: -4px 0 0; }
+.paper { font-size: 13px; color: var(--muted); overflow-wrap: anywhere; margin: 0; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; margin: 0; }
+
+footer { color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); padding-top: 14px; }
+
+@media (max-width: 900px) { .doors { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 640px) { .door { grid-template-columns: 1fr; } .door video { max-width: 360px; margin: 0 auto; } }
+@media (max-width: 520px) { .doors { grid-template-columns: repeat(3, 1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="ribbon"></div>
+    <h1>The 2026 Rognes Advent Calendar</h1>
+    <p class="status">The first door opens on <b>1 December 2026</b>.</p>
+  </header>
+
+  <section aria-labelledby="h-doors">
+    <h2 id="h-doors">December</h2>
+    <nav class="doors">
+      <div class="tile" aria-label="1 December, not open yet">
+        <span class="num">1</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="2 December, not open yet">
+        <span class="num">2</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="3 December, not open yet">
+        <span class="num">3</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="4 December, not open yet">
+        <span class="num">4</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="5 December, not open yet">
+        <span class="num">5</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="6 December, not open yet">
+        <span class="num">6</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="7 December, not open yet">
+        <span class="num">7</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="8 December, not open yet">
+        <span class="num">8</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="9 December, not open yet">
+        <span class="num">9</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="10 December, not open yet">
+        <span class="num">10</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="11 December, not open yet">
+        <span class="num">11</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="12 December, not open yet">
+        <span class="num">12</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="13 December, not open yet">
+        <span class="num">13</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="14 December, not open yet">
+        <span class="num">14</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="15 December, not open yet">
+        <span class="num">15</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="16 December, not open yet">
+        <span class="num">16</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="17 December, not open yet">
+        <span class="num">17</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="18 December, not open yet">
+        <span class="num">18</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="19 December, not open yet">
+        <span class="num">19</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="20 December, not open yet">
+        <span class="num">20</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="21 December, not open yet">
+        <span class="num">21</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="22 December, not open yet">
+        <span class="num">22</span><span class="mon">Dec</span></div>
+      <div class="tile" aria-label="23 December, not open yet">
+        <span class="num">23</span><span class="mon">Dec</span></div>
+      <div class="tile last" aria-label="24 December, not open yet">
+        <span class="num">24</span><span class="mon">Dec</span></div>
+    </nav>
+  </section>
+
+  
+
+  <footer>One door opens every morning from 1 to 24 December.</footer>
+
+</div>
+</body>
+</html>
